@@ -1,4 +1,4 @@
-package astartest;
+//package astartest;
 
 
 import java.util.ArrayList;
@@ -18,11 +18,9 @@ public class AStar {
     private GridSpace[][] grid;
     public boolean [][] closed;
     public PriorityQueue open; 
-    int startX, startY;
-    int endX, endY;
     boolean pathFound = false;
     
-    public AStar(GridSpace[][] grid,int startX, int startY, int endX, int endY){
+    public AStar(GridSpace[][] grid){
         this.grid = grid;
         this.closed = new boolean[this.grid.length][this.grid[0].length];
         
@@ -33,13 +31,9 @@ public class AStar {
             }
         }
         this.open = new PriorityQueue();
-        this.startX = startX;
-        this.startY = startY;
-        this.endX = endX;
-        this.endY = endY;
     }
     
-    public ArrayList<GridSpace> findPath(){
+    public ArrayList<GridSpace> findPath(int startX, int startY, int endX, int endY){
         for(int i = 0; i < grid.length; i++){
             for(int j = 0; j < grid[i].length; j++){
                 grid[i][j].setP(null);
@@ -58,7 +52,7 @@ public class AStar {
             
             current = (GridSpace) open.remove();
             
-            if(current.getX() == this.endX && current.getY() == this.endY){
+            if(current.getX() == endX && current.getY() == endY){
                 return retrievePath(current);
             }
             
@@ -73,7 +67,7 @@ public class AStar {
                 
                 int newG = current.getG() + 1;
                 
-                if(!open.contains(temp) && temp.getType() == 1){
+                if(!open.contains(temp) && (temp.getType() == 1 || temp.getType() == 2 ||  temp.getType() == 3)){
                     open.add(temp);
                 }else if(newG > temp.getG()){
                     continue;
@@ -91,9 +85,7 @@ public class AStar {
     }
     
     public ArrayList<GridSpace> getNeighbors(GridSpace current){
-        ArrayList<GridSpace> neighbors = new ArrayList<GridSpace>(4);
-        
-        
+        ArrayList<GridSpace> neighbors = new ArrayList<GridSpace>(4); 
         
         if(current.getX()-1 < 0 == false){
             neighbors.add(grid[current.getX()-1][current.getY()]);

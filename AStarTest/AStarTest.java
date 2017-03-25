@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package astartest;
+//package astartest;
 
 import java.util.ArrayList;
 
@@ -16,8 +16,15 @@ public class AStarTest {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public void testAStar() {
         // TODO code application logic here
+        
+        MapReader r= new MapReader();
+        r.thingy("peckHall0GridColor.png", 1, 1);
+        
+        
+        
+        
         GridSpace[][] grid = new GridSpace[10][10];
         int startX = 7;
         int startY = 9;
@@ -42,8 +49,8 @@ public class AStarTest {
         grid[5][6].setType(0);
         grid[6][6].setType(0);
         
-        AStar star = new AStar(grid,startX, startY, endX, endY);
-        ArrayList<GridSpace> path = star.findPath();
+        AStar star = new AStar(grid);
+        ArrayList<GridSpace> path = star.findPath(startX, startY, endX, endY);
         String p = "";
         for(int i = 0; i < path.size(); i++){
             p.concat("("+path.get(i).getX()+","+path.get(i).getY()+") ");
@@ -51,6 +58,8 @@ public class AStarTest {
         }
         
         System.out.println(p);
+
     }
+
     
 }
