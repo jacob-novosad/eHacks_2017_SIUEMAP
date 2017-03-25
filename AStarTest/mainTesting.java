@@ -20,5 +20,10 @@ public class mainTesting {
         for(GridSpace i:path) {
             System.out.println( i.getX() + "," + i.getY());
         }
+        MapWriter w = new MapWriter();
+        w.writePath("peckHall0Path.png", "peckHall0GridColor.png", path, 1, 1);
+        
+        
+        
     }
 }
