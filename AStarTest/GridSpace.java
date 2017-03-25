@@ -46,16 +46,18 @@ public class GridSpace implements Comparable{
         p = null;
     }
 
+
+        
+
     /**
      * Creates new GridSpace with x, y, and z coordinates.
      * @param x
      * @param y
      * @param z 
      */
-    public GridSpace(int x, int y,int z){
+  public GridSpace(int x, int y) {
         this.x=x;
         this.y=y;
-        this.z=z;
         g =0;
         f=0;
         type=0;
@@ -69,10 +71,9 @@ public class GridSpace implements Comparable{
      * @param z
      * @param t 
      */
-    public GridSpace(int x, int y,int z, int t){
+    public GridSpace(int x, int y, int t){
         this.x=x;
         this.y=y;
-        this.z=z;
         g =0;
         f =0;
         type=t;
@@ -121,10 +122,6 @@ public class GridSpace implements Comparable{
         return y;
     }
 
-    public int getZ() {
-        return z;
-    }
-
     public void setF(int f) {
         this.f = f;
     }
@@ -145,9 +142,6 @@ public class GridSpace implements Comparable{
         this.y = y;
     }
 
-    public void setZ(int z) {
-        this.z = z;
-    }
     
     public void setType(int t){
         this.type = t;
@@ -160,4 +154,16 @@ public class GridSpace implements Comparable{
     public void setP(GridSpace p) {
         this.p = p;
     }
+
+    
+    public int h(int x, int y){
+        return Math.abs(this.x-x)+Math.abs(this.y-y);
+    }
+    
+    
+    public int compareTo(Object o) {
+        GridSpace s =(GridSpace) o; 
+        return s.f - this.f;
+    }
+
 }

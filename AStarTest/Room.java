@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package AStarTest;
+
 
 /**
  *
@@ -16,6 +18,15 @@ public class Room {
     private int floor;
     private int x;
     private int y;
+
+
+     public Room(String roomNumber, String building) {
+        this.roomNumber = roomNumber;
+        this.building = building;
+        this.floor = (int) roomNumber.charAt(0);
+        this.x = 0;
+        this.y = 0;
+     }
 
     public Room(String roomNumber, String building, int x, int y) {
         this.roomNumber = roomNumber;

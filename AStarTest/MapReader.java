@@ -62,15 +62,15 @@ public class MapReader {
                     }
                     
                     if(yellow){
-                        grid[x/7][y/7] = new GridSpace(x/7,y/7,0,2);
+                        grid[x/7][y/7] = new GridSpace(x/7,y/7,2);
                     }
                     else if(green) {
-                        grid[x/7][y/7] = new GridSpace(x/7,y/7,0,1);
+                        grid[x/7][y/7] = new GridSpace(x/7,y/7,1);
                     }
                     else if(pink) {
-                        grid[x/7][y/7] = new GridSpace(x/7,y/7,0,3);
+                        grid[x/7][y/7] = new GridSpace(x/7,y/7,3);
                     }
-                    else grid[x/7][y/7] = new GridSpace(x/7,y/7,0,0);
+                    else grid[x/7][y/7] = new GridSpace(x/7,y/7,0);
                 }
             }
             
