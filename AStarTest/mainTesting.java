@@ -25,6 +25,7 @@ public class mainTesting {
         for(int i = 0; i < path.size(); i++){
             System.out.println( path.get(i).getX() + "," +  path.get(i).getY());
         }
+
         MapWriter w = new MapWriter();
         w.writePath("peckHall0Path.png", "peckHall0GridColor.png", path, 1, 1);
     }

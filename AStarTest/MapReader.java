@@ -15,6 +15,9 @@ import javax.imageio.ImageIO;
  * @author John
  */
 public class MapReader {
+    BufferedImage image;
+    int offSetX;
+    int offSetY;
     
     public MapReader() {
         
@@ -23,7 +26,7 @@ public class MapReader {
     
     public GridSpace[][] thingy(String filename,int offX,int offY){
         try {
-            BufferedImage image = ImageIO.read(new File(filename));
+            image = ImageIO.read(new File(filename));
             
             System.out.println(image.getRGB(0, 0));
         //   System.out.println(image.getHeight());

@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+package AStarTest;
+
+
 /**
  *
  * @author Jeremiah
@@ -16,6 +19,7 @@ public class Room {
     private int x;
     private int y;
 
+
      public Room(String roomNumber, String building) {
         this.roomNumber = roomNumber;
         this.building = building;
@@ -23,7 +27,7 @@ public class Room {
         this.x = 0;
         this.y = 0;
      }
-    
+
     public Room(String roomNumber, String building, int x, int y) {
         this.roomNumber = roomNumber;
         this.building = building;
