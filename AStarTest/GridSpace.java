@@ -47,10 +47,9 @@ public class GridSpace implements Comparable{
         //t = Type.OPEN;
     }
 
-        public GridSpace(int x, int y,int z){
+        public GridSpace(int x, int y){
         this.x=x;
         this.y=y;
-        this.z=z;
         g =0;
         f=0;
         type=0;
@@ -61,10 +60,9 @@ public class GridSpace implements Comparable{
     /**
      * Creates new grid space with cost 0 and type t (0 for open, 1 for closed)
      */
-    public GridSpace(int x, int y,int z, int t){
+    public GridSpace(int x, int y, int t){
         this.x=x;
         this.y=y;
-        this.z=z;
         g =0;
         f =0;
         type=t;
@@ -96,10 +94,6 @@ public class GridSpace implements Comparable{
         return y;
     }
 
-    public int getZ() {
-        return z;
-    }
-
     public void setF(int f) {
         this.f = f;
     }
@@ -120,9 +114,6 @@ public class GridSpace implements Comparable{
         this.y = y;
     }
 
-    public void setZ(int z) {
-        this.z = z;
-    }
     
     public void setType(int t){
         this.type = t;
@@ -136,8 +127,8 @@ public class GridSpace implements Comparable{
         this.p = p;
     }
     
-    public int h(int x, int y, int z){
-        return Math.abs(this.x-x)+Math.abs(this.y-y)+Math.abs(this.y-y);
+    public int h(int x, int y){
+        return Math.abs(this.x-x)+Math.abs(this.y-y);
     }
     
     

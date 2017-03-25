@@ -34,7 +34,7 @@ public class AStarTest {
         
         for(int i = 0; i < grid.length; i++){
             for(int j = 0; j < grid[i].length; j++){
-                GridSpace temp = new GridSpace(i,j,0,1);
+                GridSpace temp = new GridSpace(i,j,1);
                 grid[i][j] = temp;
             }
         }

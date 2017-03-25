@@ -39,7 +39,7 @@ public class AStar {
                 grid[i][j].setP(null);
                 grid[i][j].setG(-1);
                 grid[i][j].setF(-1);
-                grid[i][j].setH(grid[i][j].h(endX, endY, 0));
+                grid[i][j].setH(grid[i][j].h(endX, endY));
             }
         }
         
