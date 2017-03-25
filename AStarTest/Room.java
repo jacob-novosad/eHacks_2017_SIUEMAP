@@ -10,14 +10,17 @@ package AStarTest;
  * @author Jeremiah
  */
 public class Room {
+
     private String roomNumber;
     private String building;
+    private int floor;
     private int x;
     private int y;
-    
-    public Room(String roomNumber,String building, int x, int y){
+
+    public Room(String roomNumber, String building, int x, int y) {
         this.roomNumber = roomNumber;
         this.building = building;
+        this.floor = (int) roomNumber.charAt(0);
         this.x = x;
         this.y = y;
     }
@@ -53,5 +56,13 @@ public class Room {
     public void setBuilding(String building) {
         this.building = building;
     }
-    
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
 }
