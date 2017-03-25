@@ -29,23 +29,25 @@ public class RoomWriter {
         System.out.println("Xoff:");
         int xoff = sc.nextInt();
         System.out.println("Yoff:");
-        int yoffb= sc.nextInt();
+        int yoff= sc.nextInt();
         
         System.out.println("Building Name:");
         String building = sc.next();
-        
+        building += sc.nextLine();
+        System.out.println(building);
+         
         ArrayList<Room> rooms= new ArrayList<Room>();
         
         MapReader r= new MapReader();
-        GridSpace[][] grid = r.thingy(gridColorMap, 1, 1);
+        GridSpace[][] grid = r.thingy(gridColorMap, xoff, yoff);
         
-        for(int x=0;x<grid.length;x++) {
-            for(int y=0; y<grid[x].length;y++) {
+        for(int y=0;y<6;y++) {//y<grid[0].length
+            for(int x=0;x<grid.length;x++) {
                 if(grid[x][y].getType()==2) {
-                    System.out.println( "Room At ("+x+","+y+")" );
+                    System.out.println( "Room At ("+ (xoff+ x* 7)+","+(yoff+ y* 7)+")" );
                     
                     System.out.println("Number:");
-                    String roomNum = sc.next();
+                    String roomNum = sc.nextLine();
                     
                     rooms.add(new Room(roomNum,building,x,y));   
                 }
@@ -61,7 +63,8 @@ public class RoomWriter {
         try {
             out = new BufferedWriter(new FileWriter(fileOut));
             for(Room room:rooms){
-                out.write(room.getBuilding() + " " + room.getRoomNumber() + " " + room.getX() + " " + room.getY()+" \n");      
+                out.write(room.getBuilding() + ":" + room.getRoomNumber() + ":" + room.getX() + ":" + room.getY()+"\n");
+                out.flush();
             }
             System.out.println("File writen");
             out.close();
