@@ -1,5 +1,3 @@
-package classmap;
-
 
 import java.util.ArrayList;
 
@@ -57,19 +55,14 @@ public class Driver {
     }
     
     public void clearOutput(){
-        System.out.println("AAAAAAAAAA");
         MapWriter mwriter =new MapWriter();
         ArrayList<GridSpace> nill = new ArrayList<GridSpace>();
         mwriter.writePath(peckOutputMaps[0],peckOriginalMaps[0], nill, 1, 1);
-        mwriter.writePath(peckOutputMaps[1],peckOriginalMaps[1], nill, 1, 1);
-        mwriter.writePath(peckOutputMaps[2],peckOriginalMaps[2], nill, 1, 1);
-        mwriter.writePath(peckOutputMaps[3],peckOriginalMaps[3], nill, 1, 1);
     }
     
     public String path(String startBuilding,String startRoom,String targetBuilding, String targetRoom ){
         clearOutput();
-        if(startBuilding.compareTo(targetBuilding)==0){
-            System.out.println("start and target buildings same");
+        if(startBuilding==targetBuilding){
             Room r1=findRoom(startRoom);
             Room r2=findRoom(targetRoom);
             if(r1 == null || r2 == null){
